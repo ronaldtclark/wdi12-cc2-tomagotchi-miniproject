@@ -1,0 +1,1 @@
+# wdi12-cc2-tomagotchi-miniproject
