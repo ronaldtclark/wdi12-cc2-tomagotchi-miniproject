@@ -1,3 +1,30 @@
-.Tomagotchi {
+
+body {
+  text-align: center;
   
 }
+
+.metrics {
+  display: inline-block;
+} 
+
+button {
+  display: inline-block;
+}
+img {
+  justify-content: center;
+
+  height:100%;
+  max-height: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
