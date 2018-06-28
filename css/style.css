@@ -11,30 +11,11 @@ body {
   font-size: 20px;
 } 
 
-/*button {
-  display: inline-block;
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 10px;
-  text-shadow: 1px 1px 3px #666666;
-  font-family: Courier New;
-  color: #ffffff;
-  font-size: 20px;
-  background: #43cf2d;
-  padding: 10px 20px 10px 20px;
-  border: solid #297a0d 2px;
-  text-decoration: none;
-}
-
-button:hover {
-  background: #4cfc3c;
-  text-decoration: none;
-}*/
 
 img {
   justify-content: center;
   height:100%;
-  max-height: 120px;
+  max-height: 150px;
 }
 
 h1 {

@@ -12,7 +12,7 @@ class Tomagotchi {
 
 const pop = new Tomagotchi ('Poppinfresh');
 
-const wizName = prompt("What is your wizard's name?", "Poppinfresh")
+const wizName = prompt("What is your wizard's name?", "enter name")
 const $name = $('<h1>')
 $name.text(wizName)
 $('body').prepend($name)
@@ -50,12 +50,16 @@ $('#lights').on('click', () => {
 const awake = () => {
     if (lightSwitch === 1) {
       pop.sleepiness++ ;
+        if (pop.sleepiness === 10) {
+        alert(`${wizName} has died of exhaustion.`)
+            document.location.reload(); 
+        }
       console.log(`sleepiness level: ${pop.sleepiness}`)
       $('.sleep').text(`Sleepiness: ${pop.sleepiness}`);
     }
   }
 
-  setInterval(awake, 15000)
+  setInterval(awake, 6000)
 
 //when lightswitch off, tiredness decreases by 1 every x minutes
 const sleep = () => {   
@@ -70,7 +74,7 @@ const sleep = () => {
     }
   } 
 
-  setInterval(sleep, 5000)
+  setInterval(sleep, 4000)
 
 
 
@@ -80,11 +84,15 @@ const sleep = () => {
 //as time passes, pop gets hungry
 const hungerLevel = () => {
     pop.hunger++;
+      if (pop.hunger === 10) {
+      alert(`${wizName} has starved to death.`)
+        document.location.reload(); 
+      }
     console.log(`hunger level: ${pop.hunger}`);
     $('.hunger').text(`Hunger: ${pop.hunger}`);
   }
 
-  setInterval(hungerLevel, 10000)
+  setInterval(hungerLevel, 5000)
 
 //clicking the feed button will reduce his hunger level
 $('#feed').on('click', () => {
@@ -104,12 +112,16 @@ $('#feed').on('click', () => {
 
 //as time passes, pop gets bored
 const boredomLevel = () => {
-    pop.boredom++
+    pop.boredom++;
+      if (pop.boredom === 10) {
+      alert(`${wizName} was bored to death.`)
+        document.location.reload(); 
+      }
     console.log(`boredom level: ${pop.boredom}`);
     $('.boredom').text(`Boredom: ${pop.boredom}`);
 }
 
-  setInterval (boredomLevel, 5000)
+  setInterval (boredomLevel, 3000)
 
 //clicking the play button reduces the boredom level
 $('#play').on('click', () => {
@@ -150,49 +162,10 @@ const gettingOld = () => {
      
    
 }
-setInterval (gettingOld, 20000);
+setInterval (gettingOld, 10000);
 
 
 
-
-
-
-
-// *****DEATH*****
-const mortality = () => {
-
-let status = 'alive'
-
-
-// if any value gets to 10, he dies
-if (pop.hunger === 10) {
-  alert(`${wizName} has starved to death.`)
-  status = 'dead'
-}
-
-if (pop.sleepiness === 10) {
-  alert(`${wizName} has died of exhaustion.`)
-  status = 'dead'
-}
-
-if (pop.boredom === 10) {
-  alert(`${wizName} was bored to death.`)
-  status = 'dead'
-}
-
-
-// if he dies, avatar changes
-if (status === 'dead') {
-  $('#avatar').attr('src', 'https://i.imgur.com/hQX2LRT.png');
-  clearInterval(gettingOld);
-  clearInterval(boredomLevel);
-  clearInterval(hungerLevel);
-  clearInterval(awake);
-  clearInterval(sleep);
-}
-}
-
-mortality();
 
 
 
